@@ -139,7 +139,8 @@ def install(links, owner, run_id):
             time.sleep(1)
             document = plistlib.loads(ARCHIVE.read_bytes())
             root, resolve = decode(document)
-            if titles.issubset({resolve(ref).get('title') for ref in root['NS.objects']}):
+            imported = [resolve(ref) for ref in root['NS.objects'] if resolve(ref).get('data') == source_url]
+            if {model.get('title') for model in imported}.issuperset(titles):
                 break
         else:
             raise RuntimeError('Native import did not produce all five nodes')
@@ -157,9 +158,11 @@ def install(links, owner, run_id):
         if model.get('type') == 'Subscribe' and model.get('host') == source_url:
             continue
         if model.get('host') == domain and int(model.get('port') or 0) in {mode[1] for mode in MODES}:
-            if model.get('title') not in titles:
+            if model.get('title') not in titles or model.get('data') != source_url:
                 continue
             port = int(model['port'])
+            if port in selected:
+                continue
             if model.get('allowInsecure'):
                 raise ValueError('Native import unexpectedly disabled certificate verification')
             selected[port] = {'local_uuid': model['uuid'], 'title': model['title']}
