@@ -1,0 +1,46 @@
+services:
+  vpn:
+    platform: linux/arm64
+    image: ${DVPN_IMAGE:-dockervpn:local}
+    build: .
+    restart: unless-stopped
+    init: true
+    read_only: true
+    cap_drop: [ALL]
+    cap_add: [NET_BIND_SERVICE]
+    security_opt: [no-new-privileges:true]
+    ports:
+      - "0.0.0.0:443:443/tcp"
+      - "0.0.0.0:7000:7000/udp"
+      - "0.0.0.0:7001:7001/udp"
+      - "0.0.0.0:7002:7002/udp"
+      - "0.0.0.0:7003:7003/tcp"
+    volumes:
+      - type: bind
+        source: ${DVPN_PRIVATE_DIR:-./private}/secrets.json
+        target: /run/secrets/dockervpn.json
+        read_only: true
+      - type: bind
+        source: ${DVPN_TLS_DIR:-./private/tls}
+        target: /run/tls
+        read_only: true
+    tmpfs:
+      - /run/dockervpn:mode=0700,size=16m
+    healthcheck:
+      test: [CMD, python, /app/runtime/supervisor.py, health]
+      interval: 20s
+      timeout: 5s
+      start_period: 15s
+      retries: 3
+    logging:
+      driver: json-file
+      options: {max-size: "10m", max-file: "2"}
+    labels:
+      com.centurylinklabs.watchtower.enable: "false"
+networks:
+  default:
+    enable_ipv6: true
+    ipam:
+      config:
+        - subnet: ${DVPN_IPV4_SUBNET:-172.30.70.0/24}
+        - subnet: ${DVPN_IPV6_SUBNET:-fd57:443:7000::/64}

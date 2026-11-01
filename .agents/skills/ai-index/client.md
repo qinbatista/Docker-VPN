@@ -1,0 +1,3 @@
+# Native client
+
+shadowrocket_client targets the explicitly authorized macOS Shadowrocket host. Import links are private; a random loopback subscription is a temporary parser transport and is removed from native active data. Preserve unrelated profiles and a native recovery copy. Actual selection uses the profile-local UUID, not the protocol authentication UUID. Each mode needs identity, HTTPS, bulk, HTTP/2 small-transfer and UDP DNS acceptance. Rank the same HTTP/1.1 download target with three valid samples, keeping failures. Rename only after measured acceptance; compact UID references without altering credentials and read back the chosen node.

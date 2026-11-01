@@ -1,0 +1,8 @@
+.git
+.agents
+Cache
+private
+.env
+.env.*
+__pycache__
+*.pyc

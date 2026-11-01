@@ -1,0 +1,3 @@
+# Operations
+
+Host preparation uses the standard library and process helpers with explicit Windows/macOS/Linux behavior. Generated credentials and links belong in ignored private/ or a native external owner. deploy_local targets Linux, validates before cutover and stops only named previous containers. Preserve unrelated HTTPS ingress and certificate renewal. private_backup requires complete S3 public-access blocking, encrypts before upload, excludes its identity, verifies local decryption and remote bytes, and releases exact transport files. Keep backup identities in separate private owners, never Git or S3.

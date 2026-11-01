@@ -1,0 +1,8 @@
+{
+  "type": "hysteria2",
+  "tag": "hysteria2-7000",
+  "listen": "0.0.0.0",
+  "listen_port": 7000,
+  "users": [{"name": "hysteria2", "password": "${hysteria2.password}"}],
+  "tls": {"enabled": true, "certificate_path": "/run/tls/${domain}.crt", "key_path": "/run/tls/${domain}.key"}
+}

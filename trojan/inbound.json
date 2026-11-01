@@ -1,0 +1,8 @@
+{
+  "type": "trojan",
+  "tag": "trojan-7003",
+  "listen": "0.0.0.0",
+  "listen_port": 7003,
+  "users": [{"name": "trojan", "password": "${trojan.password}"}],
+  "tls": {"enabled": true, "certificate_path": "/run/tls/${domain}.crt", "key_path": "/run/tls/${domain}.key"}
+}

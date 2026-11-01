@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "project": "DockerVPN",
+  "rules": {
+    "repository": ".agents/skills/ai-index/repository.md",
+    "structure": ".agents/skills/ai-index/structure.md",
+    "verification": ".agents/skills/ai-index/verification.md"
+  },
+  "modules": [
+    {
+      "id": "runtime",
+      "summary": "Five public inbound templates, private rendering and one-container two-core lifecycle",
+      "document": ".agents/skills/ai-index/runtime.md",
+      "sources": [
+        "Dockerfile",
+        "compose.yaml",
+        "runtime/configuration.py",
+        "runtime/supervisor.py",
+        "README.md",
+        "vless-reality/inbound.json",
+        "hysteria2/inbound.json",
+        "hysteria2-salamander/inbound.json",
+        "tuic/inbound.json",
+        "trojan/inbound.json"
+      ],
+      "dependencies": [],
+      "code_targets": [
+        {
+          "id": "load-private",
+          "file": "runtime/configuration.py",
+          "symbol": "load_private",
+          "anchor": "def load_private(path):",
+          "summary": "Validate the separate private file and required fields without printing values."
+        },
+        {
+          "id": "render-five-modes",
+          "file": "runtime/configuration.py",
+          "symbol": "render",
+          "anchor": "def render(project_root, settings):",
+          "summary": "Resolve five independent templates into one Xray and one sing-box configuration."
+        },
+        {
+          "id": "write-private",
+          "file": "runtime/configuration.py",
+          "symbol": "private_write",
+          "anchor": "def private_write(path, data):",
+          "summary": "Write owner-only configuration without following an output symlink."
+        },
+        {
+          "id": "supervise-cores",
+          "file": "runtime/supervisor.py",
+          "symbol": "supervise",
+          "anchor": "def supervise():",
+          "summary": "Validate both cores; stop its peer and exit when either core ends."
+        },
+        {
+          "id": "runtime-health",
+          "file": "runtime/supervisor.py",
+          "symbol": "healthy",
+          "anchor": "def healthy():",
+          "summary": "Require two live child identities and five actual listener ports."
+        }
+      ]
+    },
+    {
+      "id": "operations",
+      "summary": "Portable preparation, explicit Linux cutover and client-encrypted private S3 backups",
+      "document": ".agents/skills/ai-index/operations.md",
+      "sources": [
+        "tools/dockervpn.py",
+        "tools/private_backup.py",
+        "tools/deploy_local.py",
+        "tools/processes.py",
+        ".env.example"
+      ],
+      "dependencies": [
+        {
+          "module": "runtime",
+          "reason": "Consumes the public renderer and private write boundary."
+        }
+      ],
+      "code_targets": [
+        {
+          "id": "initialize",
+          "file": "tools/dockervpn.py",
+          "symbol": "initialize",
+          "anchor": "def initialize(domain, directory, image):",
+          "summary": "Generate fresh credentials through the pinned Xray binary into a separate private owner."
+        },
+        {
+          "id": "deploy",
+          "file": "tools/deploy_local.py",
+          "symbol": "deploy",
+          "anchor": "def deploy(arguments):",
+          "summary": "Validate before stopping explicitly named old containers; keep rollback metadata."
+        },
+        {
+          "id": "backup",
+          "file": "tools/private_backup.py",
+          "symbol": "backup",
+          "anchor": "def backup(private, work, bucket, key):",
+          "summary": "Encrypt, restore-check, upload to blocked-public S3, read back bytes, and release transport files."
+        },
+        {
+          "id": "hidden-process",
+          "file": "tools/processes.py",
+          "symbol": "hidden_options",
+          "anchor": "def hidden_options():",
+          "summary": "Keep Windows child launches hidden and preserve native macOS/Linux behavior."
+        }
+      ]
+    },
+    {
+      "id": "client",
+      "summary": "Native authorized macOS Shadowrocket import, real China acceptance and measured profile names",
+      "document": ".agents/skills/ai-index/client.md",
+      "sources": [
+        "tools/shadowrocket_client.py"
+      ],
+      "dependencies": [
+        {
+          "module": "runtime",
+          "reason": "Uses the mode map and private file writer."
+        },
+        {
+          "module": "operations",
+          "reason": "Uses portable command execution at the authorized native boundary."
+        }
+      ],
+      "code_targets": [
+        {
+          "id": "configure-and-test",
+          "file": "tools/shadowrocket_client.py",
+          "symbol": "configure_and_test",
+          "anchor": "def configure_and_test(arguments):",
+          "summary": "Test five active modes, retain errors, rename with measured medians and select fastest accepted mode."
+        },
+        {
+          "id": "import-profiles",
+          "file": "tools/shadowrocket_client.py",
+          "symbol": "install",
+          "anchor": "def install(links, owner, run_id):",
+          "summary": "Import private links through ephemeral loopback HTTP, preserve unrelated profiles and detach the subscription."
+        },
+        {
+          "id": "compact-archive",
+          "file": "tools/shadowrocket_client.py",
+          "symbol": "compact",
+          "anchor": "def compact(document):",
+          "summary": "Keep reachable native archive objects while remapping every UID."
+        }
+      ]
+    },
+    {
+      "id": "verification",
+      "summary": "Synthetic contract tests and actual deployed core/client acceptance",
+      "document": ".agents/skills/ai-index/verification.md",
+      "sources": [
+        ".agents/skills/testing-skill/SKILL.md",
+        ".agents/skills/testing-skill/tests/test_contracts.py"
+      ],
+      "dependencies": [
+        {
+          "module": "runtime",
+          "reason": "Checks rendering and private boundaries."
+        },
+        {
+          "module": "client",
+          "reason": "Real client proof is separate from synthetic contract tests."
+        }
+      ],
+      "code_targets": [
+        {
+          "id": "contract-tests",
+          "file": ".agents/skills/testing-skill/tests/test_contracts.py",
+          "symbol": "ConfigurationContracts",
+          "anchor": "class ConfigurationContracts(unittest.TestCase):",
+          "summary": "Synthetic tests cover five distinct ports, quoting, typed copies, permissions, and symlink refusal."
+        }
+      ]
+    }
+  ]
+}

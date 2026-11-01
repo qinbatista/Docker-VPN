@@ -1,0 +1,10 @@
+{
+  "type": "tuic",
+  "tag": "tuic-7002",
+  "listen": "0.0.0.0",
+  "listen_port": 7002,
+  "users": [{"name": "tuic", "uuid": "${tuic.uuid}", "password": "${tuic.password}"}],
+  "congestion_control": "bbr",
+  "zero_rtt_handshake": false,
+  "tls": {"enabled": true, "alpn": ["h3"], "certificate_path": "/run/tls/${domain}.crt", "key_path": "/run/tls/${domain}.key"}
+}

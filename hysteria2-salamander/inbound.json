@@ -1,0 +1,9 @@
+{
+  "type": "hysteria2",
+  "tag": "hysteria2-salamander-7001",
+  "listen": "0.0.0.0",
+  "listen_port": 7001,
+  "users": [{"name": "hysteria2-salamander", "password": "${hysteria2_salamander.password}"}],
+  "obfs": {"type": "salamander", "password": "${hysteria2_salamander.obfs_password}"},
+  "tls": {"enabled": true, "certificate_path": "/run/tls/${domain}.crt", "key_path": "/run/tls/${domain}.key"}
+}
