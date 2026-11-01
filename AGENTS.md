@@ -1,4 +1,4 @@
-# DockerVPN
+# Docker-VPN
 
 One Docker container serves five protocol folders. Follow [.agents/skills/ai-index/SKILL.md](.agents/skills/ai-index/SKILL.md) for source ownership and [.agents/skills/testing-skill/SKILL.md](.agents/skills/testing-skill/SKILL.md) for checks.
 

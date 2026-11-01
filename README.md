@@ -1,4 +1,4 @@
-# DockerVPN
+# Docker-VPN
 
 Five independent VPN modes in one Linux Docker container. Xray serves VLESS REALITY / Vision; sing-box serves Hysteria2, Hysteria2 with Salamander, TUIC v5 and Trojan TLS.
 
@@ -79,7 +79,7 @@ Successful profiles are named `Technical-Name MedianMbps`, and the fastest accep
 Install the official `age` / `age-keygen` tools and AWS CLI on the backup host. Use an existing authorized AWS profile and a bucket with all four S3 public-access blocks enabled:
 
 ```text
-python3 -B tools/private_backup.py --private-dir private --work-dir Cache/YOUR_TASK_RUN --bucket YOUR_PRIVATE_BUCKET --key DockerVPN/private/config.tar.age
+python3 -B tools/private_backup.py --private-dir private --work-dir Cache/YOUR_TASK_RUN --bucket YOUR_PRIVATE_BUCKET --key Docker-VPN/private/config.tar.age
 ```
 
 The work directory must already exist under the task's ignored Cache. The tool archives only `secrets.json`, optional `client-links.txt` and `medians.json`; it excludes the identity file. It encrypts locally, verifies decryption, uploads ciphertext with S3 server-side encryption, downloads it again and compares bytes. Consumed plaintext and transport copies are removed. Keep `private/backup-age.key` separately backed up; it is deliberately excluded from both Git and S3. Restore requires that identity and `age -d`.

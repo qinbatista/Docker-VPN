@@ -1,8 +1,8 @@
 ---
 name: testing-skill
-description: Focused DockerVPN rendering, isolation, lifecycle and native China client verification.
+description: Focused Docker-VPN rendering, isolation, lifecycle and native China client verification.
 ---
-# DockerVPN testing
+# Docker-VPN testing
 
 Keep test output and temporary fixtures in the caller's task Cache. Never use production credentials in maintained fixtures.
 

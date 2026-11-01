@@ -13,6 +13,6 @@ COPY hysteria2/ /app/hysteria2/
 COPY hysteria2-salamander/ /app/hysteria2-salamander/
 COPY tuic/ /app/tuic/
 COPY trojan/ /app/trojan/
-LABEL org.opencontainers.image.source="https://github.com/qinbatista/DockerVPN"
+LABEL org.opencontainers.image.source="https://github.com/qinbatista/Docker-VPN"
 ENTRYPOINT ["python", "/app/runtime/supervisor.py"]
 CMD ["serve"]

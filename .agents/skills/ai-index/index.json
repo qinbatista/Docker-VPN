@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "project": "DockerVPN",
+  "project": "Docker-VPN",
   "rules": {
     "repository": ".agents/skills/ai-index/repository.md",
     "structure": ".agents/skills/ai-index/structure.md",
